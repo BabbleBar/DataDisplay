@@ -7,9 +7,6 @@ from flask import Flask
 import plotly.plotly as py
 import plotly.graph_objs.graph_objs as gobj
 
-import plotly.plotly as py
-import plotly.graph_objs.graph_objs as gobj
-
 app = Flask(__name__)
 
 
@@ -71,6 +68,7 @@ if __name__ == "__main__":
             y=[],
             stream=dict(token=stream_token)
         )
+
     data = gobj.Data([trace1])
     py.plot(data)
     s = py.Stream(stream_token)
