@@ -32,7 +32,7 @@ def receive_new_message(ch, method, properties, body):
                                    data['FPort'],
                                    data['payload_hex']
                                    ))
-    s.write(dict(x=data['Time'],y=data['payload_hex']))
+    s.write(dict(x=data['Time'], y= int(data['payload_hex'],16)))
     #print("michi does something :D")
 
 
