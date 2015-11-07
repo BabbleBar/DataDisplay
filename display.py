@@ -54,20 +54,23 @@ def start_listener():
 
 if __name__ == "__main__":
     port = os.getenv('VCAP_APP_PORT', '5000')
+    username = os.getenv('plotly_username')
+    api_key = os.getenv('plotly_api_key')
+    stream_token = os.getenv('plotly_stream_token')
 
     print("############################################")
     print("STARTING")
     print("############################################")
 
-    p = py.sign_in('vosermi', 'newpassword')
+    p = py.sign_in(username,api_key)
     trace1 = gobj.Scatter(
-        x=[],
-        y=[],
-        stream=dict(token='newpassword')
-    )
+            x=[],
+            y=[],
+            stream=dict(token=stream_token)
+        )
     data = gobj.Data([trace1])
     py.plot(data)
-    s = py.Stream('newpassword')
+    s = py.Stream(stream_token)
     s.open()
 
     connection = pika.BlockingConnection(get_pika_params())
