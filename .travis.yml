@@ -7,6 +7,6 @@ deploy:
   api: https://api.lyra-836.appcloud.swisscom.com
   username: michael.voser@gmail.com
   password:
-    secure: tbd
+    secure: RgnigVQp50pNr/CNf3JY6ZWpLd/D3vnnOv9GMxtJRVg9uS+l31KXWEJ+iv1/32wjhVfF3Y8Mnv/OgqNX55R7mSOrKjcMzMswy0997eH2KDUpDcF8B4AIyIvrqcpj+kSIdKkG+Ls7e/QW4Bo/ipSaZzRUVEcKY61/ZCpR97CUfFUb9W9fQEyp9nx9AVp6k+vxeU3+2X8GLVoULPWY0PSiH9ik8yZkO8GLAEfzgS+nUCnYCVQJ4Ef57/aDFoeyRdomQZoDzHa6iRSRXfAChz63Kxhra1jeTA0nHRw5wlbb1hKKvuB+87MnwcO1bqLVjcWGg+XheoIo2sT/iknmPGnJLAufEAD9Aha+TzjSCmkdl2dlygeDBP3QB45XOZmeDQc05zG/OpPMKo40Ne9MQ13i+08o6zL1Yf0N521mNCqMizZkCngkj9K2eYNAQkns7AZW2/Y3/5BFID74UXGBaVunzG+GJ88ZiAjNLvobW3DuwqC5A6ezfUbCgzcUvps58Y64VInkbn/sTV6SaUpURcuSdeiXlqFqL3GLt0K0+v66tsxSHKngZpawKpTtdEQNpmBS09m8kgBy8RDHejQ+vO0N16invApqLLx6HLQzJEcd5psSC1FN7W2tjndPRl2usBhD8B34xAXvPOz5EW51ksVrxjusD/kZemjDSnjoDw3hEd0=
   organization: BabbleBar
   space: DEV
