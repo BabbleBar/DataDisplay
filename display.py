@@ -5,6 +5,9 @@ import threading
 import pika
 from flask import Flask
 
+import plotly.plotly as py
+import plotly.graph_objs.graph_objs as gobj
+
 app = Flask(__name__)
 
 
@@ -29,7 +32,8 @@ def receive_new_message(ch, method, properties, body):
                                    data['FPort'],
                                    data['payload_hex']
                                    ))
-    print("michi does something :D")
+    s.write(dict(x=data['Time'],y=data['payload_hex']))
+    #print("michi does something :D")
 
 
 def start_listener():
@@ -56,6 +60,18 @@ if __name__ == "__main__":
     print("############################################")
     print("STARTING")
     print("############################################")
+
+    p = py.sign_in('vosermi', 'newpassword')
+    trace1 = gobj.Scatter(
+            x=[],
+            y=[],
+            stream=dict(token='newpassword')
+        )
+    data = gobj.Data([trace1])
+    py.plot(data)
+    s = py.Stream('newpassword')
+    s.open()
+
     connection = pika.BlockingConnection(get_pika_params())
     thread = threading.Thread(target=start_listener)
     thread.setDaemon(True)
