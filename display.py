@@ -1,15 +1,16 @@
-from flask import Flask
-import os
-import pika
 import json
+import os
 import threading
-import pprint
-from pymongo import MongoClient
-import pymongo, render_template
-from flask.ext.socketio import SocketIO, emit
+
+import pika
+from flask import Flask
+from flask.ext.socketio import SocketIO
 
 app = Flask(__name__)
 
+@app.route("/ping")
+def hello():
+    return "pong"
 
 def get_pika_params():
     if 'VCAP_SERVICES' in os.environ:

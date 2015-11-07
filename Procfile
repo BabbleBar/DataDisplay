@@ -1,1 +1,1 @@
-web: python logger.py
+web: python display.py
