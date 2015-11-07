@@ -4,7 +4,6 @@ import threading
 
 import pika
 from flask import Flask
-
 import plotly.plotly as py
 import plotly.graph_objs.graph_objs as gobj
 
@@ -27,13 +26,12 @@ def get_pika_params():
 
 def receive_new_message(ch, method, properties, body):
     data = json.loads(body)
-    print("EUI: %s %s - %s: %s" % (data['DevEUI'],
+    print("EUI: %s %s - %s: %s" % (data['eui'],
                                    data['Time'],
                                    data['FPort'],
-                                   data['payload_hex']
+                                   data['payload_int']
                                    ))
-    s.write(dict(x=data['Time'], y= int(data['payload_hex'],16)))
-    #print("michi does something :D")
+    s.write(dict(x=data['Time'], y=data['payload_int']))
 
 
 def start_listener():
@@ -42,7 +40,7 @@ def start_listener():
     result = channel.queue_declare(exclusive=True)
     queue_name = result.method.queue
 
-    channel.queue_bind(exchange='data_log',
+    channel.queue_bind(exchange='data',
                        queue=queue_name)
 
     print('listener started')
@@ -63,10 +61,10 @@ if __name__ == "__main__":
 
     p = py.sign_in('vosermi', 'newpassword')
     trace1 = gobj.Scatter(
-            x=[],
-            y=[],
-            stream=dict(token='newpassword')
-        )
+        x=[],
+        y=[],
+        stream=dict(token='newpassword')
+    )
     data = gobj.Data([trace1])
     py.plot(data)
     s = py.Stream('newpassword')
