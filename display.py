@@ -27,11 +27,11 @@ def get_pika_params():
 def receive_new_message(ch, method, properties, body):
     data = json.loads(body)
     print("EUI: %s %s - %s: %s" % (data['eui'],
-                                   data['Time'],
-                                   data['FPort'],
+                                   data['timestamp'],
+                                   data['data_type'],
                                    data['payload_int']
                                    ))
-    s.write(dict(x=data['Time'], y=data['payload_int']))
+    s.write(dict(x=data['timestamp'], y=data['payload_int']))
 
 
 def start_listener():
