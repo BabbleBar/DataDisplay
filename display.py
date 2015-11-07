@@ -4,7 +4,6 @@ import threading
 
 import pika
 from flask import Flask
-from flask.ext.socketio import SocketIO
 
 app = Flask(__name__)
 
@@ -48,9 +47,6 @@ def start_listener():
 
     channel.start_consuming()
 
-
-
-socketio = SocketIO(app)
 
 if __name__ == "__main__":
     port = os.getenv('VCAP_APP_PORT', '5000')
