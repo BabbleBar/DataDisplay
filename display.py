@@ -68,11 +68,9 @@ if __name__ == "__main__":
             y=[],
             stream=dict(token=stream_token)
         )
-
     data = gobj.Data([trace1])
     py.plot(data)
     s = py.Stream(stream_token)
-
     s.open()
 
     connection = pika.BlockingConnection(get_pika_params())
